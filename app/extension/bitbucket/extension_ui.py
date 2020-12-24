@@ -18,7 +18,8 @@ def app_specific_action(webdriver, datasets):
             page.go_to_url(f"${BITBUCKET_SETTINGS.server_url}/plugins/servlet/digest/account/overview")
             checkbox = page.wait_until_visible((By.ID, 'enable-digest-global'))
             current_state = checkbox.is_selected()
-            if (not current_state) checkbox.click()
+            if (not current_state):
+                checkbox.click()
         sub_measure()
 
         @print_timing("view_email_preview")
